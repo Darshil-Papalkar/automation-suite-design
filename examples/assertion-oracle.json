@@ -1,0 +1,30 @@
+{
+  "oracle_id": "oracle_retry_limit",
+  "revision": 1,
+  "assertions": [
+    {
+      "assertion_id": "assert_max_attempts",
+      "behavior_statement": "There are no more than four total attempts.",
+      "observable": "recorded service invocation count",
+      "comparison_operator": "less_than_or_equal",
+      "expected_value_or_invariant": 4,
+      "evidence_refs": [
+        {
+          "source_id": "src_PAY-241",
+          "revision": "snapshot-1",
+          "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "location": "acceptance-criteria/AC-1",
+          "url": "https://example.invalid/jira/PAY-241"
+        }
+      ],
+      "provenance": "requirement",
+      "temporal_bound": "Await terminal request result using the fixture clock.",
+      "tolerance_policy": null
+    }
+  ],
+  "prohibited_weakening": [
+    "Do not increase allowed attempt count.",
+    "Do not skip or quarantine the scenario."
+  ],
+  "review_state": "policy_accepted"
+}
