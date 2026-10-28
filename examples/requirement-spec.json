@@ -1,0 +1,26 @@
+{
+  "requirement_id": "req_retry_limit",
+  "stable_criterion_key": "PAY-241/AC-1",
+  "revision": 1,
+  "title": "Retry bound",
+  "normative_statement": "After the initial attempt, retry a transient failure at most three times.",
+  "source_refs": [
+    {
+      "source_id": "src_PAY-241",
+      "revision": "snapshot-1",
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "location": "acceptance-criteria/AC-1",
+      "url": "https://example.invalid/jira/PAY-241"
+    }
+  ],
+  "preconditions": [
+    "Service returns a transient failure on every attempt."
+  ],
+  "action": "Submit one request.",
+  "expected_outcomes": [
+    "At most four total attempts: initial attempt plus three retries."
+  ],
+  "status": "resolved",
+  "authority_resolution": "The fixture explicitly defines retries separately from initial attempt.",
+  "questions": []
+}
