@@ -1,0 +1,77 @@
+{
+  "report_id": "report_fixture_1",
+  "revision": 1,
+  "patch_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "plan_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "source_manifest_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "execution_manifest_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "quality_outcome": "SUSPECTED_PRODUCT_DEFECT",
+  "delivery_kind": "artifact_only",
+  "merge_eligible": false,
+  "gates": [
+    {
+      "gate_id": "oracle_fidelity",
+      "status": "passed",
+      "required": true,
+      "evidence_artifact_refs": [
+        "art_review_1"
+      ],
+      "explanation": "Fixture reviewer confirms the assertion matches the explicit retry bound."
+    },
+    {
+      "gate_id": "generated_test_execution",
+      "status": "failed",
+      "required": true,
+      "evidence_artifact_refs": [
+        "art_run_1"
+      ],
+      "explanation": "Test executed and observed six attempts against the bound of four; product-defect adjudication pending."
+    }
+  ],
+  "result_summary": {
+    "collected": 1,
+    "executed": 1,
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "errors": 0
+  },
+  "criterion_dispositions": [
+    {
+      "requirement_id": "req_retry_limit",
+      "scenario_ids": [
+        "scenario_retry_limit"
+      ],
+      "disposition": "new",
+      "reason": "A new executed test exposes a candidate requirement violation."
+    }
+  ],
+  "generated_tests_collected": [
+    "test_retry_bound"
+  ],
+  "generated_tests_executed": [
+    "test_retry_bound"
+  ],
+  "uncovered_criteria": [],
+  "failure_findings": [
+    "SUSPECTED_PRODUCT_DEFECT: implementation made six total attempts."
+  ],
+  "verification_limitations": [
+    "Synthetic example; no real service or repository was tested.",
+    "Candidate product defect has not been independently adjudicated."
+  ],
+  "baseline_comparison": {
+    "new_failures": [
+      "test_retry_bound"
+    ],
+    "persistent_failures": [],
+    "resolved_failures": [],
+    "incomparable_results": [],
+    "selection_differences": [
+      "new generated test absent from base"
+    ]
+  },
+  "ci_head_sha": null
+}
