@@ -1,0 +1,46 @@
+{
+  "project_id": "prj_checkout",
+  "source_refs": [
+    {
+      "kind": "jira_issue",
+      "connection_id": "conn_jira",
+      "external_id": "PAY-241"
+    },
+    {
+      "kind": "confluence_page",
+      "connection_id": "conn_confluence",
+      "external_id": "92417"
+    }
+  ],
+  "repository_refs": [
+    {
+      "repository_id": "repo_backend",
+      "ref": "main",
+      "role": "application"
+    },
+    {
+      "repository_id": "repo_tests",
+      "ref": "main",
+      "role": "automation"
+    }
+  ],
+  "scope": {
+    "suite_roots": [
+      "tests/payments"
+    ],
+    "test_layers": [
+      "api"
+    ],
+    "scenario_limit": 20
+  },
+  "environment_id": "env_ephemeral_checkout",
+  "publication_mode": "draft_pr",
+  "limits": {
+    "wall_clock_seconds": 2700,
+    "model_cost_usd": 10.0,
+    "repair_attempts": 3
+  },
+  "allow_unverified_draft": true,
+  "generation_revision": 1,
+  "replaces_job_id": null
+}
